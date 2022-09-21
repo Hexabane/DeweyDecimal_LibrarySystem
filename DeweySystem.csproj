@@ -1,0 +1,37 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net5.0-windows</TargetFramework>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Resources\down.png" />
+    <None Remove="Resources\Exit.png" />
+    <None Remove="Resources\Menu.png" />
+    <None Remove="Resources\MenuHover.png" />
+    <None Remove="Resources\replace.png" />
+    <None Remove="Resources\reset.png" />
+    <None Remove="Resources\search-alt.png" />
+    <None Remove="Resources\search.png" />
+    <None Remove="Resources\search2.png" />
+    <None Remove="Resources\submit.png" />
+    <None Remove="Resources\up.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Resources\down.png" />
+    <Resource Include="Resources\Exit.png" />
+    <Resource Include="Resources\Menu.png" />
+    <Resource Include="Resources\MenuHover.png" />
+    <Resource Include="Resources\replace.png" />
+    <Resource Include="Resources\reset.png" />
+    <Resource Include="Resources\search-alt.png" />
+    <Resource Include="Resources\search.png" />
+    <Resource Include="Resources\search2.png" />
+    <Resource Include="Resources\submit.png" />
+    <Resource Include="Resources\up.png" />
+  </ItemGroup>
+
+</Project>
