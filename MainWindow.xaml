@@ -335,7 +335,7 @@
                             <Button.ToolTip>
 
                                 <ToolTip x:Name="tt_RBV"
-                                         Content="Add Module"
+                                         Content="Replace Book"
                                          Style="{StaticResource tt_style}"/>
 
                             </Button.ToolTip>
@@ -373,7 +373,7 @@
                             <Button.ToolTip>
 
                                 <ToolTip x:Name="tt_IAV"
-                                         Content="Track Record"
+                                         Content="IAV"
                                          Style="{StaticResource tt_style}"/>
 
                             </Button.ToolTip>
@@ -411,7 +411,7 @@
                             <Button.ToolTip>
 
                                 <ToolTip x:Name="tt_FCN"
-                                         Content="Report"
+                                         Content="Find Call No."
                                          Style="{StaticResource tt_style}"/>
 
                             </Button.ToolTip>

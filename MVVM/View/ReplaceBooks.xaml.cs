@@ -154,7 +154,7 @@ namespace DeweySystem.MVVM.View
         private void Button_resetAchievement(object sender, RoutedEventArgs e)
         {
             ListHandler l = new ListHandler();
-            l.SetAchievement(0);
+            l.SetAchievement(0,0);
             PopulateAchievement();
             MessageBox.Show("Achievements Reset!");
         }
@@ -166,7 +166,7 @@ namespace DeweySystem.MVVM.View
             //List Variables to store the randomized list and the user entered list
             List<string> userList = new List<string>();
             List<string> userList1 = new List<string>();
-            int point = ListHandler.GetAchievement();
+            int point = ListHandler.GetAchievement(0);
             
 
             //if statement that checks whether the arrangement area listbox has all the 10 call numbers.
@@ -187,14 +187,14 @@ namespace DeweySystem.MVVM.View
                 if(userList.SequenceEqual(userList1))
                 {
                     point++;
-                    l.SetAchievement(point);
+                    l.SetAchievement(point, 0);
                     PopulateAchievement();
                     ResetGame();
                     MessageBox.Show("Call Numbers Were Sorted Correctly!!");
                 }
                 else
                 {
-                    l.SetAchievement(0);
+                    l.SetAchievement(0, 0);
                     PopulateAchievement();
                     MessageBox.Show("Wrong Arrangement, All Achievements will be lost!!");
                    
@@ -214,7 +214,7 @@ namespace DeweySystem.MVVM.View
         public void PopulateAchievement()
         {//start of PopulateAchievement method
 
-            int point = ListHandler.GetAchievement();
+            int point = ListHandler.GetAchievement(0);
 
             PB1.Value = point;
             PB2.Value = point;
