@@ -5,8 +5,437 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:DeweySystem.MVVM.View"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
-            
-    </Grid>
+             d:DesignHeight="550" d:DesignWidth="1000"
+             Background="Transparent">
+    <StackPanel>
+
+
+
+
+        <!--// WPF TITLE //-->
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+
+            <TextBlock  Text="REPLACE BOOKS"
+                       Foreground="WHITE"
+                       FontSize="36"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Top"
+                       Margin="0, 20,0,0" FontWeight="Bold" TextDecorations="Underline"/>
+
+            <!--<Image Source="\Resources\ViewUsers.png" 
+                   Height="47" VerticalAlignment="Bottom"
+                   Margin="20 0 0 0 "/>-->
+
+        </StackPanel>
+
+        <!--// MAIN GRID THAT INCLUDES FUNTIONAL COMPONENTS //-->
+        <Grid>
+
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition Width="220"/>
+
+            </Grid.ColumnDefinitions>
+
+
+
+
+            <!--// STACK PANEL FOR THE FIRST COLUMN AND FIRST ROW OF THE GRID //-->
+            <!--// DSIPLAYS THE USERS THAT ARE ADDED INTO THE SYSTEM //-->
+            <StackPanel Grid.Column="0"
+                       >
+
+                <TextBlock  Grid.Column="0"
+                            Name="questiontxt"
+                            Foreground="WHITE"
+                            FontSize="20"
+                            Text="Q. "
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Top"
+                            Margin="0, 20,0,0" 
+                            FontWeight="Bold" 
+                            >
+
+                    <TextBlock.Effect>
+
+                        <DropShadowEffect BlurRadius="10"
+                                                  ShadowDepth="1"
+                                                  Direction="-90"
+                                                  Color="White" />
+
+                    </TextBlock.Effect>
+
+
+
+                </TextBlock>
+
+                <Border CornerRadius="20"
+                        Width="320"
+                        
+                        Margin=" 0 10">
+
+                    <Border.Background>
+                        <LinearGradientBrush StartPoint="0,0"
+                                             EndPoint="1,2">
+
+
+                            <GradientStop Color="#FF8489" Offset="0.0"/>
+                            <GradientStop Color="#D5ADC8" Offset="1" />
+
+                        </LinearGradientBrush>
+
+                    </Border.Background>
+
+                    <GroupBox   BorderThickness="0"
+                                Foreground="White"
+                                Padding="10" 
+                                FontSize="14">
+
+                        <ListBox x:Name="lbCallNumbers" 
+                         Width="300" 
+                         Height="317"
+                         Background="#2E333A"
+                         BorderThickness="0"
+                         Foreground="White"
+                         HorizontalAlignment="Center" 
+                         FontSize="14"  >
+
+                            <ListBox.ItemContainerStyle>
+                                <Style TargetType="ListBoxItem">
+                                    <Setter Property="Padding" Value="8"/>
+                                </Style>
+                            </ListBox.ItemContainerStyle>
+
+                            <ListBox.Resources>
+                                <Style TargetType="Border">
+                                    <Setter Property="CornerRadius" Value="20"/>
+                                </Style>
+                            </ListBox.Resources>
+
+                        </ListBox>
+                    </GroupBox>
+
+                </Border>
+
+                <TextBlock Foreground="WHITE"
+                            FontSize="12"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Top"
+                           Text="Match The question with one of the 4 options given above!"/>
+
+
+                <StackPanel Orientation="Horizontal"
+                            HorizontalAlignment="Center"
+                            Margin="0 5">
+
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+
+                        <Button
+                        Width="160" 
+                        Height="40"
+                        Grid.Column="0"
+                        Background="Transparent"
+                        Click="Button_reset" 
+                        BorderThickness="0"
+                    
+                        >
+
+
+
+
+                            <StackPanel Orientation="Horizontal" >
+
+                                <TextBlock Text="RESET GAME"
+                                   Foreground="White"
+                                   FontWeight="Bold"
+                                   Margin="10" FontSize="16"/>
+                                <Image Source="\Resources\reset.png" />
+
+                            </StackPanel>
+
+                        </Button>
+
+                        <Button 
+                        Width="150" 
+                        Height="40"
+                        Background="Transparent"
+                        BorderThickness="0"
+                        Grid.Column="1"
+                        Click="Button_submit" 
+                        >
+
+
+
+
+                            <StackPanel Orientation="Horizontal" >
+
+                                <TextBlock Text="SUBMIT"
+                                   Foreground="White"
+                                   FontWeight="Bold"
+                                   Margin="10" FontSize="16"/>
+                                <Image Source="\Resources\submit.png" />
+
+                            </StackPanel>
+
+                        </Button>
+                    </Grid>
+                </StackPanel>
+
+            </StackPanel>
+
+
+
+          
+
+            <StackPanel Grid.Column="1">
+
+                <TextBlock  
+                            Text="Streaker"
+                            Foreground="WHITE"
+                            FontSize="18"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Top"
+                            FontWeight="Bold" 
+                            Margin="0 20 0 0 "
+                            >
+
+                    <TextBlock.Effect>
+
+                        <DropShadowEffect BlurRadius="10"
+                                                  ShadowDepth="1"
+                                                  Direction="-90"
+                                                  Color="White" />
+
+                    </TextBlock.Effect>
+
+
+
+                </TextBlock>
+
+                <Grid>
+                    <ProgressBar x:Name="PB1" Height="20"
+                             Orientation="Horizontal"
+                             Background="Aqua"
+                             Value="0"
+                             Maximum="3"/>
+                    <TextBlock Text="{Binding ElementName=PB1, Path=Value, StringFormat={}{0:0}/3}" 
+                           FontSize="18"
+                           HorizontalAlignment="Center"/>
+                </Grid>
+
+                <TextBlock Foreground="WHITE"
+                            FontSize="12"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Top"
+                           Text="(3 Sets of Levels Completed In A Row!)"/>
+
+
+                <TextBlock  
+                            Text="Acheiver"
+                            Foreground="WHITE"
+                            FontSize="18"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Top"
+                            FontWeight="Bold" 
+                            Margin="0 20 0 0"
+                            >
+
+                    <TextBlock.Effect>
+
+                        <DropShadowEffect BlurRadius="10"
+                                                  ShadowDepth="1"
+                                                  Direction="-90"
+                                                  Color="White" />
+
+                    </TextBlock.Effect>
+
+
+
+                </TextBlock>
+
+
+                <Grid>
+                    <ProgressBar x:Name="PB2" Height="20"
+                             Orientation="Horizontal"
+                             Background="Aqua"
+                             Value="0"
+                             Maximum="5"/>
+                    <TextBlock Text="{Binding ElementName=PB2, Path=Value, StringFormat={}{0:0}/5}" 
+                           FontSize="18"
+                           HorizontalAlignment="Center"/>
+                </Grid>
+
+                <TextBlock Foreground="WHITE"
+                            FontSize="12"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Top"
+                           Text="(5 Sets of Levels Completed In A Row!)"/>
+
+                <TextBlock  
+                            Text="Scholar"
+                            Foreground="WHITE"
+                            FontSize="18"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Top"
+                            FontWeight="Bold" 
+                            Margin="0 20 0 0"
+                            >
+
+                    <TextBlock.Effect>
+
+                        <DropShadowEffect BlurRadius="10"
+                                                  ShadowDepth="1"
+                                                  Direction="-90"
+                                                  Color="White" />
+
+                    </TextBlock.Effect>
+
+
+
+                </TextBlock>
+
+
+                <Grid>
+                    <ProgressBar x:Name="PB3" Height="20"
+                             Orientation="Horizontal"
+                             Background="Aqua"
+                             Value="0"
+                             Maximum="10"/>
+                    <TextBlock Text="{Binding ElementName=PB3, Path=Value, StringFormat={}{0:0}/10}" 
+                           FontSize="18"
+                           HorizontalAlignment="Center"/>
+                </Grid>
+
+                <TextBlock Foreground="WHITE"
+                            FontSize="12"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Top"
+                           Text="(10 Sets of Levels Completed In A Row!)"/>
+
+                <TextBlock  
+                            Text="OverAcheiver"
+                            Foreground="WHITE"
+                            FontSize="18"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Top"
+                            FontWeight="Bold" 
+                            Margin="0 20 0 0"
+                            >
+
+                    <TextBlock.Effect>
+
+                        <DropShadowEffect BlurRadius="10"
+                                                  ShadowDepth="1"
+                                                  Direction="-90"
+                                                  Color="White" />
+
+                    </TextBlock.Effect>
+
+
+
+                </TextBlock>
+
+
+                <Grid>
+                    <ProgressBar x:Name="PB4" Height="20"
+                             Orientation="Horizontal"
+                             Background="Aqua"
+                             Value="0"
+                             Maximum="15"
+                             />
+                    <TextBlock Text="{Binding ElementName=PB4, Path=Value, StringFormat={}{0:0}/15}" 
+                           FontSize="18"
+                           HorizontalAlignment="Center"/>
+                </Grid>
+
+                <TextBlock Foreground="WHITE"
+                            FontSize="12"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Top"
+                           Text="(15 Sets of Levels Completed In A Row!)"/>
+
+
+                <TextBlock  
+                            Text="Genius"
+                            Foreground="WHITE"
+                            FontSize="18"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Top"
+                            FontWeight="Bold" 
+                            Margin="0 20 0 0"
+                            >
+
+                    <TextBlock.Effect>
+
+                        <DropShadowEffect BlurRadius="10"
+                                                  ShadowDepth="1"
+                                                  Direction="-90"
+                                                  Color="White" />
+
+                    </TextBlock.Effect>
+
+
+
+                </TextBlock>
+
+
+                <Grid>
+                    <ProgressBar x:Name="PB5" Height="20"
+                             Orientation="Horizontal"
+                             Background="Aqua"
+                             Value="0"
+                             Maximum="20"/>
+                    <TextBlock Text="{Binding ElementName=PB5, Path=Value, StringFormat={}{0:0}/20}" 
+                           FontSize="18"
+                           HorizontalAlignment="Center"/>
+                </Grid>
+
+                <TextBlock Foreground="WHITE"
+                            FontSize="12"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Top"
+                           Text="(20 Sets of Levels Completed In A Row!)"/>
+
+                <Button
+                        Width="150" 
+                        Height="40"
+                        Grid.Column="0"
+                        Background="Transparent"
+                        Margin="0 10 0 0"
+                        BorderThickness="0"
+                        Click="Button_resetAchievement" 
+                        >
+
+
+
+
+                    <StackPanel Orientation="Horizontal" >
+
+                        <TextBlock Text="RESET"
+                                   Foreground="White"
+                                   FontWeight="Bold"
+                                   Margin="10" FontSize="16"/>
+                        <Image Source="\Resources\reset.png" />
+
+                    </StackPanel>
+
+                </Button>
+
+
+            </StackPanel>
+
+
+
+
+
+
+
+        </Grid>
+
+    </StackPanel>
 </UserControl>
